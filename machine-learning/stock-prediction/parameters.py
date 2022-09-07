@@ -5,10 +5,10 @@ from tensorflow.keras.layers import LSTM
 # Window size or the sequence length
 N_STEPS = 50
 # Lookup step, 1 is the next day
-LOOKUP_STEP = 15
+LOOKUP_STEP = 1  #15
 
 # whether to scale feature columns & output price as well
-SCALE = True
+SCALE = True #False #True
 scale_str = f"sc-{int(SCALE)}"
 # whether to shuffle the dataset
 SHUFFLE = True
@@ -46,7 +46,9 @@ BATCH_SIZE = 64
 EPOCHS = 500
 
 # Amazon stock market
-ticker = "AMZN"
+# ticker = "AMZN"
+# Oxford Nanopore stock market
+ticker = "ONTTF"
 ticker_data_filename = os.path.join("data", f"{ticker}_{date_now}.csv")
 # model name to save, making it as unique as possible based on parameters
 model_name = f"{date_now}_{ticker}-{shuffle_str}-{scale_str}-{split_by_date_str}-\
